@@ -6,10 +6,10 @@ namespace PowerCell
 {
     public class Cell
     {
-        private float Charge;
-        private readonly string Name;
-    
-        private readonly int Level = 1 + (int)Charge/40;
+        public float Charge {get;set;}
+        public readonly string Name;
+
+        //public int Level = 1 + (int)(Charge / 20);
 
 
         public Cell(string name, int charge = 200)
@@ -26,6 +26,11 @@ namespace PowerCell
         public void Restore()
         {
             this.Charge = 200;
+        }
+
+        public override string ToString()
+        {
+            return $"[{this.Name}] Level: {1 + (int)Charge / 40}: {this.Charge}/200";
         }
     }
 }
